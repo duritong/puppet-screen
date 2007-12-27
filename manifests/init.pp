@@ -23,7 +23,7 @@ define screen::deploy_screenrc(
 	$gid	= '0' ){
 	
 	file {'screen_root_configfile':
-                path => $target
+                path => $target,
                 owner => $uid,
                 group => $gid,
                 mode => 600,
