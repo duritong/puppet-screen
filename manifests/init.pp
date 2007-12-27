@@ -12,12 +12,22 @@ class screen {
                         default => '',
                 },
         }
-        file {'screen_root_configfile':
-                path => '/root/.screenrc',
-                owner => root,
-                group => 0,
+
+	screen::deploy_screenrc(screenrc_root:)
+}
+
+define screen::deploy_screenrc(
+	$source = 'normal',
+	$target = '/root/.screenrc',
+	$uid	= 'root',
+	$gid	= '0' ){
+	
+	file {'screen_root_configfile':
+                path => $target
+                owner => $uid,
+                group => $gid,
                 mode => 600,
-                source => "puppet://$server/screen/screenrc/root",
+                source => "puppet://$server/screen/${source}",
         }
 }
 
