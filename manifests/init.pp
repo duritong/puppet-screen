@@ -13,7 +13,7 @@ class screen {
                 },
         }
 
-	screen::deploy_screenrc(screenrc_root:)
+	screen::deploy_screenrc{screenrc_root:}
 }
 
 define screen::deploy_screenrc(
