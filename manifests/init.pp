@@ -13,7 +13,7 @@ class screen {
                 },
 		source => $operatingsystem ? {
 			openbsd => 'ftp://mirror.switch.ch/pub/OpenBSD/4.2/packages/i386/screen-4.0.3p0.tgz',
-			default => unset,
+			default => undef,
 		},
         }
 
