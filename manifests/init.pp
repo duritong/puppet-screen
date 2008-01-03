@@ -16,8 +16,6 @@ class screen {
 			default => undef,
 		},
         }
-
-	screen::deploy_screenrc{screenrc_root:}
 }
 
 define screen::deploy_screenrc(
