@@ -2,7 +2,7 @@
 # Copyright (C) 2007 admin@immerda.ch
 #
 
-modules_dir { "screen": }
+#modules_dir { "screen": }
 
 class screen {
         package { 'screen':
