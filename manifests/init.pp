@@ -10,7 +10,7 @@ class screen {
         openbsd: { include screen::openbsd }
         default: { include screen::base }
     }
-    screen::deploy_screenrc( "root_screenrc": }
+    screen::deploy_screenrc{ "root_screenrc": }
 }
 class screen::base {
     package { 'screen':
