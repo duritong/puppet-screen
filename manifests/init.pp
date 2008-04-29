@@ -5,17 +5,29 @@
 #modules_dir { "screen": }
 
 class screen {
-        package { 'screen':
-                ensure => present,
-                category => $operatingsystem ? {
-                        gentoo => 'app-misc',
-                        default => '',
-                },
-		source => $operatingsystem ? {
-			openbsd => 'ftp://mirror.switch.ch/pub/OpenBSD/4.2/packages/i386/screen-4.0.3p0.tgz',
-			default => undef,
-		},
-        }
+    case $operatingsystem {
+        gentoo: { include screen::gentoo }
+        openbsd: { include screen::openbsd }
+        default: { include screen::base }
+    }
+    screen::deploy_screenrc( "root_screenrc": }
+}
+class screen::base {
+    package { 'screen':
+        ensure => present,
+    }
+}
+
+class screen::gentoo inherits screen::base {
+    Package[screen]{
+        category => 'app-misc',
+    }
+}
+
+class screen::openbsd inherits screen::base {
+    Package[screen]{
+        source => 'ftp://mirror.switch.ch/pub/OpenBSD/4.2/packages/i386/screen-4.0.3p0.tgz',
+    }
 }
 
 define screen::deploy_screenrc(
