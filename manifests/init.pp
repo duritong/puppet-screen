@@ -11,6 +11,10 @@ class screen {
         default: { include screen::base }
     }
     screen::deploy_screenrc{ "root_screenrc": }
+
+    if $selinux {
+        include screen::selinux
+    }
 }
 class screen::base {
     package { 'screen':
