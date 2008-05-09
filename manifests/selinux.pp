@@ -3,7 +3,7 @@
 class screen::selinux {
     case $operatingsystem {
         gentoo: { include screen::selinux::gentoo }
-        default: { notice("No selinux stuff yet defined for your distro") }
+        default: { info("No selinux stuff yet defined for your distro") }
     }
 }
 
