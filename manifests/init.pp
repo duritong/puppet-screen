@@ -1,5 +1,15 @@
-# modules/screen/manifests/init.pp - manage screen stuff
-# Copyright (C) 2007 admin@immerda.ch
+#
+# screen module
+#
+# Copyright 2008, admin(at)immerda.ch
+# Copyright 2008, Puzzle ITC GmbH
+# Marcel Härry haerry+puppet(at)puzzle.ch
+# Simon Josi josi+puppet(at)puzzle.ch
+#
+# This program is free software; you can redistribute 
+# it and/or modify it under the terms of the GNU 
+# General Public License version 3 as published by 
+# the Free Software Foundation.
 #
 
 #modules_dir { "screen": }
@@ -37,15 +47,12 @@ class screen::openbsd inherits screen::base {
 define screen::deploy_screenrc(
 	$source = 'normal',
 	$target = '/root/.screenrc',
-	$uid	= 'root',
-	$gid	= '0' ){
+	$owner	= 'root',
+	$group	= '0' ){
 	
 	file {$name:
                 path => $target,
-                owner => $uid,
-                group => $gid,
-                mode => 600,
                 source => "puppet://$server/screen/${source}",
+                owner => $owner, group => $group, mode => 0600;
         }
 }
-
