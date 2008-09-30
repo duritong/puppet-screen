@@ -16,6 +16,7 @@
 
 class screen {
     case $operatingsystem {
+        openbsd: { include screen::openbsd }
         gentoo: { include screen::gentoo }
         default: { include screen::base }
     }
@@ -35,6 +36,10 @@ class screen::gentoo inherits screen::base {
     Package[screen]{
         category => 'app-misc',
     }
+}
+
+class screen::openbsd {
+    openbsd::special_package{'screen-4.0.3p1': }
 }
 
 define screen::deploy_screenrc(
