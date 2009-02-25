@@ -23,8 +23,8 @@ class screen {
     screen::deploy_screenrc{ "root_screenrc": }
 
     if $selinux {
-//        include screen::selinux
-    }
+#        include screen::selinux
+   }
 }
 class screen::base {
     package { 'screen':
