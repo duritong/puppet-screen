@@ -6,7 +6,7 @@ define screen::screenrc(
 ){
   file {$name:
     path => $target,
-    source => "puppet://$server/modules/screen/${source}",
+    source => "puppet:///modules/screen/${source}",
     owner => $owner, group => $group, mode => 0600;
   }
 }
