@@ -18,5 +18,4 @@ class screen {
         gentoo: { include screen::gentoo }
         default: { include screen::base }
     }
-    screen::screenrc{ "root_screenrc": }
 }

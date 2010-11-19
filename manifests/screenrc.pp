@@ -4,6 +4,7 @@ define screen::screenrc(
   $owner  = 'root',
   $group  = '0'
 ){
+  require ::screen
   file {$name:
     path => $target,
     source => "puppet:///modules/screen/${source}",
