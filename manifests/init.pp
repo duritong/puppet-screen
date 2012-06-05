@@ -13,9 +13,9 @@
 #
 
 class screen {
-    case $operatingsystem {
-        openbsd: { include screen::openbsd }
-        gentoo: { include screen::gentoo }
-        default: { include screen::base }
-    }
+  case $::operatingsystem {
+    openbsd: { include screen::openbsd }
+    gentoo: { include screen::gentoo }
+    default: { include screen::base }
+  }
 }
