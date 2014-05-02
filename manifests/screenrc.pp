@@ -7,7 +7,11 @@ define screen::screenrc(
   require ::screen
   file {$name:
     path => $target,
-    source => "puppet:///modules/screen/${source}",
+    source =>   [
+      "puppet:///modules/site_screen/${::fqdn}/${source}",
+      "puppet:///modules/site_screen/${source}",
+      "puppet:///modules/screen/${source}"
+    ],
     owner => $owner, group => $group, mode => 0600;
   }
 }
